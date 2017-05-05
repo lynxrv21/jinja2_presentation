@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ my_title }} - Super Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      .container {
+        max-width: 700px;
+      }
+      h2 {color: blue;}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Jinja!</a>
+        </div>
+
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+      {% block heading %}
+        <h1>{% block page %}{{ my_title }}{% endblock %} - File Generation Example</h1>
+      {% endblock %}
+      <h2>Actually looks the same as Flask example</h2>
+      <br>
+      <p>Some string: {{ my_string }}</p>
+      {% if 'kitten' in my_list %}
+        <p>We have kitten in list!!!</p>
+        <img src="http://placekitten.com/400/400?image={{ range(1, 10)|random }}"></img>
+      {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
